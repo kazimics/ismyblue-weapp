@@ -1,0 +1,21 @@
+{
+  "hash": "bf7be597",
+  "configHash": "0be13d85",
+  "lockfileHash": "a8d97363",
+  "browserHash": "4fefd0fe",
+  "optimized": {
+    "d3": {
+      "src": "../../../../../node_modules/d3/src/index.js",
+      "file": "d3.js",
+      "fileHash": "68ad66f3",
+      "needsInterop": false
+    },
+    "canvas-confetti": {
+      "src": "../../../../../node_modules/canvas-confetti/dist/confetti.module.mjs",
+      "file": "canvas-confetti.js",
+      "fileHash": "8df35708",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}

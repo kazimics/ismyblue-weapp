@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我们认识的颜色一致吗",
+  "usingComponents": {
+    "blue-green-test": "../../components/BlueGreenTest"
+  }
+}
