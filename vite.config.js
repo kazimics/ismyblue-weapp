@@ -1,20 +1,38 @@
-import { fileURLToPath, URL } from 'node:url'
-
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import { fileURLToPath } from 'node:url';
+import { defineConfig } from 'vite';
+import uni from '@dcloudio/vite-plugin-uni';
+import tailwindcss from 'tailwindcss';
+// @ts-ignore
+import nested from 'tailwindcss/nesting';
+import postcssPresetEnv from 'postcss-preset-env';
+import uniTailwind from '@uni-helper/vite-plugin-uni-tailwind';
+import tailwindcssConfig from './tailwind.config.js'; // 注意匹配实际文件
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [
+        nested(),
+        tailwindcss({
+          config: tailwindcssConfig,
+        }),
+        postcssPresetEnv({
+          stage: 3,
+          features: { 'nesting-rules': false },
+        }),
+      ],
+    },
+  },
   plugins: [
-    vue(),
-    vueJsx(),
-    vueDevTools(),
+    uni(),
+    uniTailwind({
+      /* options */
+    }),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+      '@': fileURLToPath(new URL('src', import.meta.url)),
+    },
+  },
+});
